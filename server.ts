@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import { connectDB } from "./config/db";
 import bootcamps from "./routes/bootcamps";
+import { errorHandler } from "./middlewares/error";
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -12,6 +13,8 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use("/api/v1/bootcamps", bootcamps);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
