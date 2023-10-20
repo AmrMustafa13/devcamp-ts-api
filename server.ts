@@ -5,7 +5,7 @@ import { connectDB } from "./config/db";
 import bootcamps from "./routes/bootcamps";
 import { errorHandler } from "./middlewares/error";
 
-dotenv.config({ path: "./config/config.env" });
+dotenv.config({ path: `${__dirname}/config/config.env` });
 
 const app = express();
 app.use(express.json());
